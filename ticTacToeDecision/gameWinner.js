@@ -1,5 +1,5 @@
-const findWinner = ()=>{
+const gameWinner = ()=>{
 
 };
 
-module.exports = findWinner;
+module.exports = gameWinner;
