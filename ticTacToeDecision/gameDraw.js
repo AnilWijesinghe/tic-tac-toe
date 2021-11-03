@@ -1,5 +1,5 @@
-const isGameDraw = ()=>{
+const gameDraw = ()=>{
 
 }
 
-module.exports = isGameDraw;
+module.exports = gameDraw;
