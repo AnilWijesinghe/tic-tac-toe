@@ -1,5 +1,5 @@
-const gameWinner = (gameBoard)=>{
-
+const findWinner = (gameBoard)=>{
+    console.log('sssss');
     for(let row=0; row<3; row++){
         if(gameBoard[row][0] == null) break;
         else if(gameBoard[row][0] === gameBoard[row][1] && gameBoard[row][1] === gameBoard[row][2]) return gameBoard[row][0];
@@ -18,6 +18,7 @@ const gameWinner = (gameBoard)=>{
         return gameBoard[0][2];
     }
 
+    return null;
 };
 
-module.exports = gameWinner;
+module.exports = {findWinner};

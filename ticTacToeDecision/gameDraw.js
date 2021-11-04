@@ -1,4 +1,4 @@
-const gameDraw = (gameBoard)=>{
+const findDraw = (gameBoard)=>{
     for(let row=0;row<gameBoard.length;row++){
         for(let col=0;col<gameBoard[row].length;col++){
             if(gameBoard[row][col]===null) return false;
@@ -7,4 +7,4 @@ const gameDraw = (gameBoard)=>{
     return true;
 }
 
-module.exports = gameDraw;
+module.exports = {findDraw};

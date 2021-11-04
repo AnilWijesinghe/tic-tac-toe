@@ -6,7 +6,7 @@ test("Game draw; All cells are filled",()=>{
     const filledGrid = [['X','X','O'],['O','X','O'],['X','O','X']];
 
     //Act
-    const isGameDraw = gameDraw(filledGrid);
+    const isGameDraw = gameDraw.findDraw(filledGrid);
 
     //Assert
     expect(isGameDraw).toBe(true);

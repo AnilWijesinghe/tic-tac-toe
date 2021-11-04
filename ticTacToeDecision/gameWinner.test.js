@@ -13,7 +13,7 @@ beforeEach(()=>{
 test("Find winner from row check",()=>{
     //Arrange
     // Act
-    const winner = gameWinner(rowWinner);
+    const winner = gameWinner.findWinner(rowWinner);
 
     //Assert
     expect(winner).toBe('X');
@@ -23,7 +23,7 @@ test("Find winner from row check",()=>{
 test("Find winner from column check",()=>{
     //Arrange
     // Act
-    const winner = gameWinner(columnWinner);
+    const winner = gameWinner.findWinner(columnWinner);
 
     //Assert
     expect(winner).toBe('O');
@@ -32,7 +32,7 @@ test("Find winner from column check",()=>{
 test("Find winner from diagonal check",()=>{
     //Arrange
     // Act
-    const winner = gameWinner(diagonalWinner);
+    const winner = gameWinner.findWinner(diagonalWinner);
 
     //Assert
     expect(winner).toBe('X');
