@@ -20,6 +20,53 @@ describe("Test for winning scenario", () => {
         expect(findWinner)
             .toHaveBeenCalledTimes(1);
     });
+    test("Check 1st input O",()=>{
+        //Arrange
+        //Act
+        ticTacToe.gamePlay('1 2');
+
+        //Assert
+        expect(findWinner)
+            .toHaveBeenCalledWith([[null,null,'X'],[null,null,'O'],[null,null,null]]);
+        expect(findWinner)
+            .toHaveBeenCalledTimes(2);
+    });
+    test("Check 2nd input X",()=>{
+        //Arrange
+        //Act
+        ticTacToe.gamePlay('0 0');
+
+        //Assert
+        expect(findWinner)
+            .toHaveBeenCalledWith([['X',null,'X'],[null,null,'O'],[null,null,null]]);
+        expect(findWinner)
+            .toHaveBeenCalledTimes(3);
+    });
+    test("Check 2nd input O",()=>{
+        //Arrange
+        //Act
+        ticTacToe.gamePlay('1 0');
+
+        //Assert
+        expect(findWinner)
+            .toHaveBeenCalledWith([['X',null,'X'],['O',null,'O'],[null,null,null]]);
+        expect(findWinner)
+            .toHaveBeenCalledTimes(4);
+    });
+
+    test("Check 3rd input X",()=>{
+        //Arrange
+        //Act
+        const inputPositionToWin = ticTacToe.gamePlay('0 1');
+
+        //Assert
+        expect(findWinner)
+            .toHaveBeenCalledWith([['X','X','X'],['O',null,'O'],[null,null,null]]);
+        expect(findWinner)
+            .toHaveBeenCalledTimes(5);
+        expect(inputPositionToWin).toBe('X is the winner')
+    });
+
 
 });
 
