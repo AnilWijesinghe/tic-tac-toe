@@ -1,6 +1,8 @@
 const ticTacToe = require('./ticTacToe');
 const gameWinner = require('../ticTacToeDecision/gameWinner');
+const gameDraw = require("../ticTacToeDecision/gameDraw");
 const findWinner = jest.spyOn(gameWinner, 'findWinner');
+const findDraw = jest.spyOn(gameDraw, 'findDraw');
 
 
 describe("Test for validation scenario", () => {
@@ -90,6 +92,10 @@ describe("Test for game draw", () => {
             .toHaveBeenCalledWith([['X',null,null],[null,null,null],[null,null,null]]);
         expect(findWinner)
             .toHaveBeenCalledTimes(1);
+        expect(findDraw)
+            .toHaveBeenCalledWith([['X',null,null],[null,null,null],[null,null,null]]);
+        expect(findDraw)
+            .toHaveBeenCalledTimes(1);
     });
     test("Check 1st input O",()=>{
         //Arrange
@@ -99,6 +105,10 @@ describe("Test for game draw", () => {
         expect(findWinner)
             .toHaveBeenCalledWith([['X',null,null],[null,'O',null],[null,null,null]]);
         expect(findWinner)
+            .toHaveBeenCalledTimes(2);
+        expect(findDraw)
+            .toHaveBeenCalledWith([['X',null,null],[null,'O',null],[null,null,null]]);
+        expect(findDraw)
             .toHaveBeenCalledTimes(2);
     });
     test("Check 2nd input X",()=>{
@@ -110,6 +120,10 @@ describe("Test for game draw", () => {
             .toHaveBeenCalledWith([['X',null,null],[null,'O',null],['X',null,null]]);
         expect(findWinner)
             .toHaveBeenCalledTimes(3);
+        expect(findDraw)
+            .toHaveBeenCalledWith([['X',null,null],[null,'O',null],['X',null,null]]);
+        expect(findDraw)
+            .toHaveBeenCalledTimes(3);
     });
     test("Check 2nd input O",()=>{
         //Arrange
@@ -119,6 +133,10 @@ describe("Test for game draw", () => {
         expect(findWinner)
             .toHaveBeenCalledWith([['X',null,null],['O','O',null],['X',null,null]]);
         expect(findWinner)
+            .toHaveBeenCalledTimes(4);
+        expect(findDraw)
+            .toHaveBeenCalledWith([['X',null,null],['O','O',null],['X',null,null]]);
+        expect(findDraw)
             .toHaveBeenCalledTimes(4);
     });
     test("Check 3rd input X",()=>{
@@ -130,6 +148,10 @@ describe("Test for game draw", () => {
             .toHaveBeenCalledWith([['X',null,null],['O','O','X'],['X',null,null]]);
         expect(findWinner)
             .toHaveBeenCalledTimes(5);
+        expect(findDraw)
+            .toHaveBeenCalledWith([['X',null,null],['O','O','X'],['X',null,null]]);
+        expect(findDraw)
+            .toHaveBeenCalledTimes(5);
     });
     test("Check 3rd input O",()=>{
         //Arrange
@@ -139,6 +161,10 @@ describe("Test for game draw", () => {
         expect(findWinner)
             .toHaveBeenCalledWith([['X','O',null],['O','O','X'],['X',null,null]]);
         expect(findWinner)
+            .toHaveBeenCalledTimes(6);
+        expect(findDraw)
+            .toHaveBeenCalledWith([['X','O',null],['O','O','X'],['X',null,null]]);
+        expect(findDraw)
             .toHaveBeenCalledTimes(6);
     });
     test("Check 4th input X",()=>{
@@ -150,6 +176,10 @@ describe("Test for game draw", () => {
             .toHaveBeenCalledWith([['X','O',null],['O','O','X'],['X','X',null]]);
         expect(findWinner)
             .toHaveBeenCalledTimes(7);
+        expect(findDraw)
+            .toHaveBeenCalledWith([['X','O',null],['O','O','X'],['X','X',null]]);
+        expect(findDraw)
+            .toHaveBeenCalledTimes(7);
     });
     test("Check 4th input O",()=>{
         //Arrange
@@ -159,6 +189,10 @@ describe("Test for game draw", () => {
         expect(findWinner)
             .toHaveBeenCalledWith([['X','O',null],['O','O','X'],['X','X','O']]);
         expect(findWinner)
+            .toHaveBeenCalledTimes(8);
+        expect(findDraw)
+            .toHaveBeenCalledWith([['X','O',null],['O','O','X'],['X','X','O']]);
+        expect(findDraw)
             .toHaveBeenCalledTimes(8);
     });
     test("Check 5th input X",()=>{
@@ -170,6 +204,11 @@ describe("Test for game draw", () => {
             .toHaveBeenCalledWith([['X','O','X'],['O','O','X'],['X','X','O']]);
         expect(findWinner)
             .toHaveBeenCalledTimes(9);
+        expect(findDraw)
+            .toHaveBeenCalledWith([['X','O','X'],['O','O','X'],['X','X','O']]);
+        expect(findDraw)
+            .toHaveBeenCalledTimes(9);
+        expect(inputPositionToWin).toBe('Game is draw');
     });
 });
 

@@ -1,5 +1,7 @@
 const gameWinner = require("../ticTacToeDecision/gameWinner");
 const validation = require("../ticTacToeValidation/validation");
+const gameDraw = require("../ticTacToeDecision/gameDraw");
+
 let gameBoard = [[null,null,null],[null,null,null],[null,null,null]];
 let currentPlayer = 'X';
 
@@ -11,7 +13,8 @@ const gamePlay = (inputPosition)=>{
     if(currentPlayer==='X') currentPlayer = 'O';
     else currentPlayer = 'X';
     if(winner!==null) return winner[0]+" is the winner";
-    else return ""
+    else
+        return ""
 };
 
 
