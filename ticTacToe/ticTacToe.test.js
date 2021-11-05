@@ -25,7 +25,7 @@ describe("Test for winning scenario,Validation when input already filled positio
         //Arrange
         let position = [[null,null,'X'],[null,null,null],[null,null,null]];
         //Act
-        ticTacToe.gamePlay('0 2');
+        const play = ticTacToe.gamePlay('0 2');
         //Assert
         expect(findWinner)
             .toHaveBeenCalledWith(position);
@@ -35,6 +35,7 @@ describe("Test for winning scenario,Validation when input already filled positio
             .toHaveBeenCalledWith(position);
         expect(findDraw)
             .toHaveBeenCalledTimes(1);
+        expect(play).toBe('O please enter the input position :')
     });
 
     test("Validation when input already filled position",()=>{
@@ -51,7 +52,7 @@ describe("Test for winning scenario,Validation when input already filled positio
         //Arrange
         let position = [[null,null,'X'],[null,null,'O'],[null,null,null]];
         //Act
-        ticTacToe.gamePlay('1 2');
+        const play = ticTacToe.gamePlay('1 2');
         //Assert
         expect(findWinner)
             .toHaveBeenCalledWith(position);
@@ -61,12 +62,13 @@ describe("Test for winning scenario,Validation when input already filled positio
             .toHaveBeenCalledWith(position);
         expect(findDraw)
             .toHaveBeenCalledTimes(1);
+        expect(play).toBe('X please enter the input position :');
     });
     test("Check 2nd input X",()=>{
         //Arrange
         let position = [['X',null,'X'],[null,null,'O'],[null,null,null]];
         //Act
-        ticTacToe.gamePlay('0 0');
+        const play = ticTacToe.gamePlay('0 0');
         //Assert
         expect(findWinner)
             .toHaveBeenCalledWith(position);
@@ -76,12 +78,13 @@ describe("Test for winning scenario,Validation when input already filled positio
             .toHaveBeenCalledWith(position);
         expect(findDraw)
             .toHaveBeenCalledTimes(1);
+        expect(play).toBe('O please enter the input position :');
     });
     test("Check 2nd input O",()=>{
         //Arrange
         let position = [['X',null,'X'],['O',null,'O'],[null,null,null]];
         //Act
-        ticTacToe.gamePlay('1 0');
+        const play = ticTacToe.gamePlay('1 0');
         //Assert
         expect(findWinner)
             .toHaveBeenCalledWith(position);
@@ -91,6 +94,7 @@ describe("Test for winning scenario,Validation when input already filled positio
             .toHaveBeenCalledWith(position);
         expect(findDraw)
             .toHaveBeenCalledTimes(1);
+        expect(play).toBe('X please enter the input position :');
     });
     test("Check 3rd input X",()=>{
         //Arrange
