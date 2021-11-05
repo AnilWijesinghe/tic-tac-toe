@@ -5,8 +5,8 @@ let currentPlayer = 'X';
 
 const gamePlay = (inputPosition)=>{
     let posArray = inputPosition.split(' ');
-    gameBoard[parseInt(posArray[0])][parseInt(posArray[1])]=currentPlayer;
     validation.checkValidation(inputPosition,gameBoard);
+    gameBoard[parseInt(posArray[0])][parseInt(posArray[1])]=currentPlayer;
     const winner = gameWinner.findWinner(gameBoard);
     if(currentPlayer==='X') currentPlayer = 'O';
     else currentPlayer = 'X';

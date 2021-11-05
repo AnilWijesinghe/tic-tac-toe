@@ -1,8 +1,5 @@
 const ticTacToe = require('./ticTacToe');
 const gameWinner = require('../ticTacToeDecision/gameWinner');
-const validation = require("../ticTacToeValidation/validation");
-
-const checkValidation = jest.spyOn(validation, 'checkValidation');
 const findWinner = jest.spyOn(gameWinner, 'findWinner');
 
 let winningGrid;
@@ -20,10 +17,6 @@ describe("Test for validation scenario", () => {
         expect(()=>{
             ticTacToe.gamePlay(inputPosition);
         }).toThrowError('Position should be in 3*3 grid');
-        expect(checkValidation)
-            .toHaveBeenCalledWith(inputPosition,[[null, null, null, "X"], [null, null, null], [null, null, null]]);
-        expect(checkValidation)
-            .toHaveBeenCalledTimes(1);
     });
 });
 
@@ -38,6 +31,17 @@ describe("Test for winning scenario", () => {
         expect(findWinner)
             .toHaveBeenCalledTimes(1);
     });
+
+    test("Validation when input already filled position",()=>{
+        //Arrange
+        let inputPosition = "0 2";
+        //Act
+        //Assert
+        expect(()=>{
+            ticTacToe.gamePlay(inputPosition);
+        }).toThrowError('input position is already filled');
+    });
+
     test("Check 1st input O",()=>{
         //Arrange
         //Act
