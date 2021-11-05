@@ -35,5 +35,5 @@ You're sections headers will be used to reference location of destination.
 
 ## Future improvements
 - Play the game through UI interface.
-- Ability get the decision of draw in middle of the game.
+- Ability to get the decision of the game draw in middle of the game.
 
