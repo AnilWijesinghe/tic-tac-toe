@@ -9,21 +9,21 @@ afterEach(() => {
 });
 
 describe("Test for validation scenario", () => {
-    test("Validation when input position not in 3*3 grid",()=>{
+    test("Validation when input position not in 3*3 grid", () => {
         //Arrange
         let inputPosition = "0 3";
         //Act
         //Assert
-        expect(()=>{
+        expect(() => {
             ticTacToe.gamePlay(inputPosition);
         }).toThrowError('Position should be in 3*3 grid');
     });
 });
 
 describe("Test for winning scenario,Validation when input already filled position", () => {
-    test("Check 1st input X",()=>{
+    test("Check 1st input X", () => {
         //Arrange
-        let position = [[null,null,'X'],[null,null,null],[null,null,null]];
+        let position = [[null, null, 'X'], [null, null, null], [null, null, null]];
         //Act
         const play = ticTacToe.gamePlay('0 2');
         //Assert
@@ -38,19 +38,19 @@ describe("Test for winning scenario,Validation when input already filled positio
         expect(play).toBe('O please enter the input position :')
     });
 
-    test("Validation when input already filled position",()=>{
+    test("Validation when input already filled position", () => {
         //Arrange
         let inputPosition = "0 2";
         //Act
         //Assert
-        expect(()=>{
+        expect(() => {
             ticTacToe.gamePlay(inputPosition);
         }).toThrowError('input position is already filled');
     });
 
-    test("Check 1st input O",()=>{
+    test("Check 1st input O", () => {
         //Arrange
-        let position = [[null,null,'X'],[null,null,'O'],[null,null,null]];
+        let position = [[null, null, 'X'], [null, null, 'O'], [null, null, null]];
         //Act
         const play = ticTacToe.gamePlay('1 2');
         //Assert
@@ -64,9 +64,9 @@ describe("Test for winning scenario,Validation when input already filled positio
             .toHaveBeenCalledTimes(1);
         expect(play).toBe('X please enter the input position :');
     });
-    test("Check 2nd input X",()=>{
+    test("Check 2nd input X", () => {
         //Arrange
-        let position = [['X',null,'X'],[null,null,'O'],[null,null,null]];
+        let position = [['X', null, 'X'], [null, null, 'O'], [null, null, null]];
         //Act
         const play = ticTacToe.gamePlay('0 0');
         //Assert
@@ -80,9 +80,9 @@ describe("Test for winning scenario,Validation when input already filled positio
             .toHaveBeenCalledTimes(1);
         expect(play).toBe('O please enter the input position :');
     });
-    test("Check 2nd input O",()=>{
+    test("Check 2nd input O", () => {
         //Arrange
-        let position = [['X',null,'X'],['O',null,'O'],[null,null,null]];
+        let position = [['X', null, 'X'], ['O', null, 'O'], [null, null, null]];
         //Act
         const play = ticTacToe.gamePlay('1 0');
         //Assert
@@ -96,9 +96,9 @@ describe("Test for winning scenario,Validation when input already filled positio
             .toHaveBeenCalledTimes(1);
         expect(play).toBe('X please enter the input position :');
     });
-    test("Check 3rd input X",()=>{
+    test("Check 3rd input X", () => {
         //Arrange
-        let position = [['X','X','X'],['O',null,'O'],[null,null,null]]
+        let position = [['X', 'X', 'X'], ['O', null, 'O'], [null, null, null]]
         //Act
         const inputPositionToWin = ticTacToe.gamePlay('0 1');
         //Assert
