@@ -19,7 +19,7 @@ test("Invalid argument; input position not in grid",()=>{
     let inputPosition = '1 4';
 
     // Act and assert
-    expect(()=>validation(inputPosition)).toThrow('Position should be in 3*3 grid');
+    expect(()=>validation.checkValidation(inputPosition)).toThrow('Position should be in 3*3 grid');
 });
 
 test("Invalid argument; input position is already filled",()=>{
@@ -27,5 +27,5 @@ test("Invalid argument; input position is already filled",()=>{
     let inputPosition = '1 2';
 
     // Act and assert
-    expect(()=>validation(inputPosition,positionFilledArr)).toThrow('input position is already filled');
+    expect(()=>validation.checkValidation(inputPosition,positionFilledArr)).toThrow('input position is already filled');
 });

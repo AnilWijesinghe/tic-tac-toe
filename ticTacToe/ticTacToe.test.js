@@ -2,7 +2,7 @@ const ticTacToe = require('./ticTacToe');
 const gameWinner = require('../ticTacToeDecision/gameWinner');
 const validation = require("../ticTacToeValidation/validation");
 
-jest.mock('../ticTacToeValidation/validation');
+const checkValidation = jest.spyOn(validation, 'checkValidation');
 const findWinner = jest.spyOn(gameWinner, 'findWinner');
 
 let winningGrid;
@@ -14,14 +14,16 @@ beforeEach(()=>{
 describe("Test for validation scenario", () => {
     test("Validation when input position not in 3*3 grid",()=>{
         //Arrange
-        let inputPosition = '0 4';
+        let inputPosition = "0 3";
         //Act
         //Assert
-        expect(validation)
-            .toHaveBeenCalledWith(inputPosition);
-        expect(validation)
+        expect(()=>{
+            ticTacToe.gamePlay(inputPosition);
+        }).toThrowError('Position should be in 3*3 grid');
+        expect(checkValidation)
+            .toHaveBeenCalledWith(inputPosition,[[null, null, null, "X"], [null, null, null], [null, null, null]]);
+        expect(checkValidation)
             .toHaveBeenCalledTimes(1);
-        expect(()=>ticTacToe.gamePlay()).toThrow('Position should be in 3*3 grid');
     });
 });
 

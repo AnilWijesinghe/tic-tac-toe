@@ -1,6 +1,6 @@
-const validation = (inputPosition,gameBoard)=>{
+const checkValidation = function(inputPosition,gameBoard){
     let positions = inputPosition.split(' '); // 1 2
-    if(positions[0]<1 || positions[0]>=3 || positions[1]<1 || positions[1]>=3)
+    if(positions[0]<0 || positions[0]>=3 || positions[1]<0 || positions[1]>=3)
         throw new Error('Position should be in 3*3 grid');
     for(let row=0;row<gameBoard.length;row++){
         for(let col=0;col<gameBoard[row].length;col++){
@@ -8,7 +8,7 @@ const validation = (inputPosition,gameBoard)=>{
                 if(gameBoard[row][col]!==null) throw new Error('input position is already filled');
         }
     }
-
+    return null;
 };
 
-module.exports = validation;
+module.exports = {checkValidation};
