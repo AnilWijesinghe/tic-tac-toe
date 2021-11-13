@@ -4,7 +4,7 @@
  * @param gameBoard
  * @returns {null}
  */
-const checkValidation = function (inputPosition, gameBoard) {
+const checkValidation = (inputPosition, gameBoard) =>{
     let positions = inputPosition.split(' ');
     if (positions[0] < 0 || positions[0] >= 3 || positions[1] < 0 || positions[1] >= 3)
         throw new Error('Position should be in 3*3 grid');
